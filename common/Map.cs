@@ -3,6 +3,7 @@
 public class Map<T> : IEnumerable<(int x, int y, T data)> {
 
   private T[][] mapData;
+
   private int width;
   private int height;
 
@@ -64,6 +65,10 @@ public class Map<T> : IEnumerable<(int x, int y, T data)> {
     }
     return ret;
   }
+
+  public int Height() { return this.height; }
+  public int Width() { return this.width; }
+
 }
 
 }
