@@ -1,0 +1,39 @@
+(3, 5, 4, 7), How to get there? Look at toggle (1, 3). Can we get differences so that (2 == 3)?.
+              {1, 3} and {2, 3}
+              Overlaps at {3}, value isY. Want to steer 1 s.t. 3 == 2
+              Check if diffs in A-B are equal to X. We then want to subtract Y-X. from {3} (7-3)
+              0101 A 
+              0011 B
+              
+
+              0001 = 3 A&B (Common indices)
+              0010 = Fixed = B & ~A
+(3, 2, 4, 4),
+(2, 2, 4, 4)
+(0, 0, 3, 3)
+(0, 0, 0, 0)
+
+(3, 2, 1, 1)
+(3, 2, 1, 0)
+(2, 2, 0, 0)
+(0, 0, 0, 0)
+
+(3, 5, 4, 7)
+(3, 5, 4, 7)
+
+
+
+XXXXXO
+X00XX0
+XXX0XX
+0XX000
+
+(10, 11, 11, 5, 10, 5) 0XX000
+(10, 10, 10, 5, 10, 5) XXX0XX * 5
+(5, 5, 5, 5, 5, 0)     XXXXX0 * 5
+(0, 0, 0, 0, 0, 0)
+
+
+(3, 5, 4, 7)  (1, 3) = {5, 7} U {3, 4} toggleValues U nonToggles
+toggle - nonToggles = 8-4=4
+

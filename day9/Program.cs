@@ -15,12 +15,6 @@ struct Point {
   public static Point operator-(Point a, Point b) {
     return new Point(a.x - b.x, a.y - b.y);
   }
-
-  public static bool operator==(Point a, Point b) {
-    return a.x == b.x && a.y == b.y;
-  }
-
-  public static bool operator!=(Point a, Point b) { return !(a == b); }
 }
 
 class Tile {
@@ -110,7 +104,6 @@ public class Program {
       int prev = (i + leftIndex ) % tiles.Count();
       int next = (i + leftIndex + 1) % tiles.Count();
 
-      Console.WriteLine(tiles[prev].location);
       bool horiz = tiles[next].location.y == tiles[prev].location.y;
       Point normal = normals[normalIndex];
       if (horiz == prevHoriz) {
@@ -172,7 +165,6 @@ public class Program {
         long candidateArea = Tile.Area(tile, candidate);
         if (candidateArea > maxArea) {
 
-          // Initially check if any tiles intersect, not counting the edge
           int lbx = Math.Min(tile.location.x, candidate.location.x);
           int ubx = Math.Max(tile.location.x, candidate.location.x);
           int lby = Math.Min(tile.location.y, candidate.location.y);
@@ -182,7 +174,6 @@ public class Program {
               return w.coordinate > lby && w.coordinate < uby &&
                 Math.Max(lbx, w.start) < Math.Min(ubx, w.end);
               });
-
           var vertIntersects = verticalWalls.Where(w => {
               return w.coordinate > lbx && w.coordinate < ubx &&
                 Math.Max(lby, w.start) < Math.Min(uby, w.end);
